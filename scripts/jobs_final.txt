@@ -1,0 +1,16 @@
+# Every sweep the outputs/ charts read. Run: python3 scripts/pool.py scripts/jobs_final.txt [--workers N]
+# Format: RUN_NAME|harness switches|hardware (';'-separated; empty = all profiles in overlay_ref)
+# Each fix alone (heatmap columns)
+kvonce|--switch kfix=C1|
+kfix-verified|--switch kfix=C1,C2,C4,C5,C6,C7|
+free|--switch free_layouts|
+pp|--switch pp_pipelined|
+free+pp|--switch free_layouts --switch pp_pipelined|
+e4a8|--switch w4a8_experts|
+kfix-C3|--switch kfix=C3|
+attn-bf16|--switch attn_prec=bf16|
+attn-fp8|--switch attn_prec=fp8|
+# All fixes, under each attention policy (scenario charts; cache misses are applied at scoring time)
+allfix|--switch kfix=C1,C2,C3,C4,C5,C6,C7 --switch w4a8_experts --switch free_layouts --switch pp_pipelined|
+allfix-bf16|--switch kfix=C1,C2,C3,C4,C5,C6,C7 --switch w4a8_experts --switch free_layouts --switch pp_pipelined --switch attn_prec=bf16|
+allfix-fp8|--switch kfix=C1,C2,C3,C4,C5,C6,C7 --switch w4a8_experts --switch free_layouts --switch pp_pipelined --switch attn_prec=fp8|

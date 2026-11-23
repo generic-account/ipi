@@ -1,0 +1,17 @@
+# Upstream clone, generated inputs, raw sweep outputs, third-party data
+ipi-repo/
+overlay_ref/
+overlay_ref.*/
+overlay_derate/
+results/
+data/
+
+# Research notes and scratch work (not part of the repository)
+notes/
+scratch_viz/
+scripts/_archive/
+IPI v1 sensitivity experiments test plan.md
+
+# Python
+__pycache__/
+*.pyc

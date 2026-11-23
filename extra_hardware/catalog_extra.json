@@ -1,0 +1,24 @@
+{
+  "Trainium2": {
+    "name": "AWS Trainium2 (64 link limited; 22 Oct 2026 research extension)",
+    "profile": "trainium2_64_link_limited",
+    "chip_budget": 64,
+    "restricted": false,
+    "quant": "fp8",
+    "hop_overlay": false,
+    "local_scale_up_group_chips": 16,
+    "topology_note": "16-chip ring groups inside a 64-chip domain; link-limited one-way bandwidth 128/64 GiB/s local/wider (study scenario 64_link_limited)",
+    "source_notes": "studies/trainium/run.py: MoE leaves repriced (MXFP4+scales / MXFP8 acts / FP8 compute), MX scale memory on non-fp8 experts; harness hook scripts/trainium_ext.py. Published 0.128 GB300e."
+  },
+  "Trainium3": {
+    "name": "AWS Trainium3 (64 detailed tiers; 22 Oct 2026 research extension)",
+    "profile": "trainium3_64_detailed_tiers",
+    "chip_budget": 64,
+    "restricted": false,
+    "quant": "w4a8_mxfp4_mxfp8",
+    "hop_overlay": false,
+    "local_scale_up_group_chips": 4,
+    "topology_note": "4-chip local groups inside a 64-chip domain; 128 GB/s local, 160 GB/s rack (study scenario 64_detailed_tiers)",
+    "source_notes": "studies/trainium/run.py: MoE leaves repriced (MXFP4+scales / MXFP8 acts / FP8 compute), MX scale memory on non-fp8 experts; harness hook scripts/trainium_ext.py. Published 0.349 GB300e."
+  }
+}
